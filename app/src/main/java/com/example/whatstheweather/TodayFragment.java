@@ -56,8 +56,6 @@ public class TodayFragment extends Fragment {
 
 
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,12 +78,9 @@ public class TodayFragment extends Fragment {
         loadingCurrentWeather=(ProgressBar)view.findViewById(R.id.loadingCurrentWeather);
 
         getWeatherInfo();
-
         return view;
     }
-
     private void getWeatherInfo() {
-
        compositeDisposable.add(mService.getWeatherByLatLong(String.valueOf(Common.currentLocation.getLatitude()),
                String.valueOf(Common.currentLocation.getLongitude()),
                Common.API_ID,
@@ -95,13 +90,11 @@ public class TodayFragment extends Fragment {
                .subscribe(new Consumer<WeatherResult>() {
                    @Override
                    public void accept(@NonNull WeatherResult weatherResult) throws Exception {
-
                        System.out.println("we:"+weatherResult);
 
                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
                                .append(weatherResult.getWeather().get(0).getIcon())
                                .append(".png").toString()).into(imageView);
-
                        //Weather Info
                        System.out.println("City:"+weatherResult.getName());
                        cityName.setText(weatherResult.getName());
@@ -129,7 +122,5 @@ public class TodayFragment extends Fragment {
                })
        );
     }
-
     // TODO: Rename method, update argument and hook method into UI event
-
 }

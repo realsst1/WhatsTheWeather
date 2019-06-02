@@ -3,7 +3,6 @@ package com.example.whatstheweather;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Looper;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -14,7 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.example.whatstheweather.Common.Common;
-import com.example.whatstheweather.Package.ViewPagerAdapter;
+import com.example.whatstheweather.Adapters.ViewPagerAdapter;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
