@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.rootLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -93,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
                 super.onLocationResult(locationResult);
                 Common.currentLocation=locationResult.getLastLocation();
                 setupViewPager();
+                tabLayout = (TabLayout) findViewById(R.id.tabs);
+                tabLayout.setupWithViewPager(viewPager);
+
+                System.out.println("LOC:"+locationResult.getLastLocation().getLatitude());
             }
         };
     }
