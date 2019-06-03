@@ -97,4 +97,16 @@ public class ForcastFragment extends Fragment {
         recyclerView.setAdapter(weatherForcastAdapter);
     }
 
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
 }

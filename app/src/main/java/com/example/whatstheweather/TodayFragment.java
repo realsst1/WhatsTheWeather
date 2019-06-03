@@ -122,5 +122,18 @@ public class TodayFragment extends Fragment {
                })
        );
     }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
 }
