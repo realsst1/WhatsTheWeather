@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerAdapter pagerAdapter=new ViewPagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(TodayFragment.getInstance(),"Today");
+        pagerAdapter.addFragment(ForcastFragment.getInstance(),"5 Day Forcast");
         viewPager.setAdapter(pagerAdapter);
     }
 

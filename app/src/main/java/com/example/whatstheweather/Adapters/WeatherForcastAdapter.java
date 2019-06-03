@@ -19,6 +19,11 @@ public class WeatherForcastAdapter extends RecyclerView.Adapter<WeatherForcastAd
     Context context;
     WeatherForcastResult forcastResult;
 
+    public WeatherForcastAdapter(Context context, WeatherForcastResult forcastResult) {
+        this.context = context;
+        this.forcastResult = forcastResult;
+    }
+
     @NonNull
     @Override
     public WeatherForcastAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -30,12 +35,12 @@ public class WeatherForcastAdapter extends RecyclerView.Adapter<WeatherForcastAd
     public void onBindViewHolder(@NonNull WeatherForcastAdapter.ViewHolder viewHolder, int i) {
 
         Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
-                .append(forcastResult.getList().get(i).getWeather().get(i).getIcon())
+                .append(forcastResult.getList().get(i).getWeather().get(0).getIcon())
                 .append(".png").toString()).into(viewHolder.imageView);
 
         viewHolder.dateTime.setText(new StringBuilder(Common.convertUnixToDate(forcastResult.getList().get(i).getDt())));
         viewHolder.desc.setText(new StringBuilder(forcastResult.getList().get(i).getWeather().get(0).description));
-        viewHolder.temp.setText(new StringBuilder(String.valueOf(forcastResult.getList().get(i).getMain().getTemp())).append("°C"));
+        viewHolder.temp.setText(new StringBuilder(String.valueOf(Math.round(forcastResult.getList().get(i).getMain().getTemp()-273.15))).append("°C"));
 
 
     }
@@ -53,8 +58,8 @@ public class WeatherForcastAdapter extends RecyclerView.Adapter<WeatherForcastAd
             super(itemView);
             view=itemView;
             imageView=(ImageView) view.findViewById(R.id.weatherImage);
-            dateTime=(TextView)view.findViewById(R.id.weatherDateTime);
-            desc=(TextView)view.findViewById(R.id.weatherDesc);
+            dateTime=(TextView)view.findViewById(R.id.forcastDate);
+            desc=(TextView)view.findViewById(R.id.forcastDesc);
             temp=(TextView)view.findViewById(R.id.temperature);
         }
     }

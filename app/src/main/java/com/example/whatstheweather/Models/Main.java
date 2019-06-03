@@ -3,7 +3,7 @@ package com.example.whatstheweather.Models;
 public class Main {
 
     public double temp;
-    public int pressure;
+    public float pressure;
     public int humidity;
     public double temp_min;
     public double temp_max;
@@ -20,11 +20,11 @@ public class Main {
         this.temp = temp;
     }
 
-    public int getPressure() {
+    public float getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(float pressure) {
         this.pressure = pressure;
     }
 

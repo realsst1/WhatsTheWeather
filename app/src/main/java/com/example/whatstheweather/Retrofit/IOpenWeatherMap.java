@@ -15,7 +15,7 @@ public interface IOpenWeatherMap {
                                                   @Query("units") String units);
 
 
-    @GET("forcast")
+    @GET("forecast")
     Observable<WeatherForcastResult> getForcastWeatherByLatLong(@Query("lat") String lat,
                                                                 @Query("lon") String lon,
                                                                 @Query("appid") String appid,
